@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./Blog.css"
-import Tag from "@/app/Tag";
+import Tag from "@/app/components/Tag";
 function Blog(props) {
     return (
         <div id="card">

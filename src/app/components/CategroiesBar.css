@@ -1,0 +1,9 @@
+#categoriesBar{
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#categoriesBar>*{
+    margin: 10px;
+}

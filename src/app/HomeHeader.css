@@ -1,0 +1,42 @@
+
+
+#bar{
+    display: flex;
+    width: 100%;
+    height: 50px;
+    /*background-color: black;*/
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+#bar img{
+    height: 50%;
+}
+
+#bar button{
+    border:transparent;
+    cursor: pointer;
+
+    background-color: #5D37F3;
+    color:white;
+    border-radius: 10px;
+    width:93px ;
+    height: 40px;
+
+}
+
+#title{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    font-size: 33px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+
+
+#title img{
+    height: 200px;
+}
