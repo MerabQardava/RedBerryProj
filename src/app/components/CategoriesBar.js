@@ -27,8 +27,7 @@ function CategoriesBar() {
         {categories ? categories.map((tags) => {
             return (<Tag key={tags.id} color={tags.text_color}
                          background_color={tags.background_color}
-                         title={tags.title}></Tag>
-            )
+                         title={tags.title}></Tag>)
         }) : <></>}
     </div>);
 }

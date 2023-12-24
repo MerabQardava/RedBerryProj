@@ -3,15 +3,21 @@
 #bar{
     display: flex;
     width: 100%;
-    height: 50px;
+    height: 80px;
     /*background-color: black;*/
     align-items: center;
     justify-content: space-between;
+    background-color: white;
+    padding: 28px 76px 28px 76px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #E4E3EB;
+
+
 
 }
 
 #bar img{
-    height: 50%;
+    /*height: 50%;*/
 }
 
 #bar button{
@@ -27,16 +33,20 @@
 }
 
 #title{
+
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
-    font-size: 33px;
+    align-items: center;
+    font-size: 34px;
     font-weight: bold;
-    margin-bottom: 50px;
+    font-family: "FiraGo", sans-serif;
+    margin: 64px 89px 64px 89px;
 }
-
 
 
 #title img{
+    /*background-color: black;*/
     height: 200px;
 }
+
+

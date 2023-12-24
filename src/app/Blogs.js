@@ -4,11 +4,11 @@ import styles from "./Blogs.css"
 function Blogs(props) {
     useEffect(() => {
         const getCategories = async (token) => {
-            // console.log(token.token)
+            // console.log(token)
             const query = await fetch("https://api.blog.redberryinternship.ge/api/blogs",{
                 method:'GET',
                 headers:{
-                    Authorization:`Bearer ${token.token}`
+                    Authorization:`Bearer ${token}`
                 }
             })
             const response = await query.json()
@@ -16,16 +16,7 @@ function Blogs(props) {
             console.log(response)
         }
 
-        const getToken = async () => {
-            const query = await fetch("https://api.blog.redberryinternship.ge/api/token")
-            const response = await query.json()
-            await getCategories(response)
-            // return response
-            // console.log(response)
-        }
-        // console.log(getToken())
-
-        getToken()
+        getCategories("9b998e79af2f6fcd05a4ecdef769d2108dbbcd6dff1b9096f0ec1dc9d16196ae")
 
     }, []);
     // console.log("test")

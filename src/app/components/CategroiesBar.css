@@ -1,7 +1,13 @@
 #categoriesBar{
     display:flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    /*justify-content: center;*/
+    align-items: center;
+    width: 35%;
+    /*flex-wrap: wrap;*/
+    overflow: scroll;
+    overflow-y: hidden;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #categoriesBar>*{
