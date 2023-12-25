@@ -1,18 +1,28 @@
+'use client';
 import React, {useState} from 'react';
 import styles from './LoginModal.css'
 import LoginError from "@/app/components/LoginError";
 import {error} from "next/dist/build/output/log";
-
+import LoggedOutModal from "@/app/components/LoggedOutModal";
+import LoggedInModal from "@/app/components/LoggedInModal";
 function LoginModal(props) {
     const [email, setEmail] = useState("");
     const [emailValid, setEmailValid] = useState(false);
     const [isTouched, setIsTouched] = useState(false);
     const [errorLable, setErrorLable] = useState(<></>)
+    const [logged, setLogged] = useState(false)
 
-    let error1;
+
+
     const onBlurHandler = () => {
         setIsTouched(true);
     };
+
+    const loginSuccess=()=>{
+        props.toggleLoginHandler()
+        props.toggleModal()
+    }
+
 
 
     function handleEmailChange(event) {
@@ -44,8 +54,12 @@ function LoginModal(props) {
                 body: JSON.stringify(requestData),
             })
                 .then(response => {
-                    if (response.status == 204) {
+                    if (response.status === 204) {
                         localStorage.setItem('isLoggedIn', "true")
+                        setLogged(true)
+
+
+
                     }else{
                         setErrorLable(<LoginError>ელ-ფოსტა არ მოიძებნა</LoginError>)
                     }
@@ -58,22 +72,21 @@ function LoginModal(props) {
 
     }
 
-    return (<>
-        <div id="loginModal" onClick={props.toggleModal}></div>
-        <div id="loginBox">
-            <img src="add.svg" alt="" onClick={props.toggleModal}/>
-            <h3>შესვლა</h3>
-            <form onSubmit={onSubmitHandler}>
-                <label htmlFor="loginEmail">ელ-ფოსტა</label>
-                <input className="loginEmailClass" value={email} onBlur={onBlurHandler} onChange={handleEmailChange} type="text"
-                       id={emailValid||!isTouched ? "loginEmail" : "loginEmailInvalid"} name="loginEmail"
-                       placeholder="Example@redberry.ge"/>
-                {errorLable}
-                <button>შესვლა</button>
-            </form>
+    return (<>{!logged?
 
+        <LoggedOutModal
+                        toggleModal={props.toggleModal}
+                        onSubmitHandler={onSubmitHandler}
+                        email={email}
+                        onBlurHandler={onBlurHandler}
+                        handleEmailChange={handleEmailChange}
+                        emailValid={emailValid}
+                        isTouched={isTouched}
+                        errorLable={errorLable}
+        />:
 
-        </div>
+        <LoggedInModal toggleModal={loginSuccess}/>
+    }
 
     </>);
 }

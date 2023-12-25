@@ -1,22 +1,32 @@
 'use client';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from "./HomeHeader.css"
 import LoginModal from "@/app/components/LoginModal";
 
 function HomeHeader(props) {
-    const [loginModal, setLoginModal] = useState(false);
+    const [loginModal, setLoginModal] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-    const isLoggedIn=localStorage.getItem('isLoggedIn')==="true";
+    useEffect(() => {
+        setIsLoggedIn(localStorage.getItem('isLoggedIn')==="true")
+
+    }, []);
+
+
+    function toggleLoggedIn(){
+        setIsLoggedIn(localStorage.getItem('isLoggedIn')==="true")
+    }
+
 
     function loginToggleHandler(){
-        setLoginModal(prevLoginModal => !prevLoginModal);
+        setLoginModal(prevLoginModal => !prevLoginModal)
         // console.log(loginModal)
 
     }
 
     return (
         <header>
-            {loginModal&&<LoginModal toggleModal={loginToggleHandler}/>}
+            {loginModal&&<LoginModal toggleLoginHandler={toggleLoggedIn} toggleModal={loginToggleHandler}/>}
             <div id="bar">
                 <img src="LOGO-02%203.svg" alt="Redberry logo"/>
 
@@ -24,7 +34,7 @@ function HomeHeader(props) {
             </div>
 
             <div id="title">
-            <h1>ბლოგი</h1>
+            <p>ბლოგი</p>
                 <img src="Blog-1024x355 1.svg" alt=""/>
 
 
