@@ -1,0 +1,16 @@
+#loginError{
+    color: #EA1919;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 0;
+}
+
+#loginError::before{
+    content: url('/info-circle.svg');
+    width:20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+}

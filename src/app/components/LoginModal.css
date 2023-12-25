@@ -11,9 +11,9 @@
 }
 
 #loginBox{
-    padding: 10px;
-    width: 30%;
-    height: 300px;
+    padding: 20px 24px 40px 24px;
+    width: 480px;
+    height: fit-content;
     background-color: white;
     position: absolute;
     top: 50%;
@@ -21,16 +21,78 @@
     transform: translate(-50%, -50%);
     border-radius: 12px;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
 }
 
 #loginBox img{
     cursor: pointer;
+    width: 25px;
+    height: 25px;
+    align-self: flex-end;
+}
+
+#loginBox label{
+    color: #1A1A1F;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-bottom: 8px;
+}
+
+#loginBox h3{
+    color: #1A1A1F;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+#loginBox form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
 
 #loginEmail{
 
+    border: 1.5px solid #5D37F3;
+    background: #F7F7FF;
+
 }
 
 #loginEmailInvalid{
-    border: 1px solid red;
+
+    border: 1px solid #EA1919;
+    background: #FAF2F3;
+}
+
+.loginEmailClass{
+    width: 100%;
+    height: 44px;
+    border-radius: 12px;
+    padding:12px 16px;
+    box-sizing: border-box;
+}
+
+#loginBox input:focus{
+    background: #F7F7FF;
+    border: 1.5px solid purple;
+    outline: none;
+}
+
+#loginBox button{
+    display: flex;
+    width: 100%;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    color: white;
+    border-radius: 8px;
+    border: transparent;
+    background: #5D37F3;
+    cursor: pointer;
 }
