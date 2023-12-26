@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import styles from "./FormsBox.css"
 import UploadImageBox from "@/app/AddBlog/UploadImageBox";
 import UploadedImg from "@/app/AddBlog/UploadedImg";
+import AuthorInput from "@/app/AddBlog/AuthorInput";
 
 function FormsBox(props) {
     const [uploadedImage, setUploadedImage] = useState(null)
@@ -10,6 +11,7 @@ function FormsBox(props) {
     function getImage(image) {
         setUploadedImage(image)
     }
+
     console.log(uploadedImage)
 
     function onFormSubmitHandler(event) {
@@ -27,6 +29,8 @@ function FormsBox(props) {
                         <UploadImageBox getImage={getImage}/> :
                         <UploadedImg img={uploadedImage} getImage={getImage}/>
                 }
+
+                <AuthorInput/>
 
                 <button>submit</button>
 

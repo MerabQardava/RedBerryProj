@@ -1,7 +1,7 @@
 #formsContainer{
     width: 600px;
     /*background-color: gray;*/
-    height: 768px;
+    /*height: 768px;*/
     margin-top:33px;
     padding: 0;
 }
@@ -25,4 +25,45 @@
     font-weight: 500;
     line-height: 20px; /* 142.857% */
 
+}
+
+.formInputText{
+    width: 288px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid #E4E3EB;
+    background: #FCFCFD;
+    padding: 12px 16px;
+    box-sizing: border-box;
+}
+
+.formInputText::placeholder{
+    color: #85858D;
+    font-family: FiraGO,sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+}
+
+.requirements{
+    color: #85858D;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 166.667% */
+}
+
+.correct{
+    color: #14D81C;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.incorrect{
+    color: #EA1919;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
 }

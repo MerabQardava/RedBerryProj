@@ -1,0 +1,12 @@
+#authorInputBox{
+    width: 288px;
+    height: 140px;
+    flex-shrink: 0;
+    margin: 24px 24px 24px 0;
+}
+
+#authorInputBox ul{
+    /*list-style-type: none;*/
+    padding-left: 18px;
+    margin-top: 8px;
+}
