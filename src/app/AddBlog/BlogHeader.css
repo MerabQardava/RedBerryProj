@@ -1,0 +1,23 @@
+#blogHeader{
+    width: 100%;
+    height: 80px;
+    /*background-color: black;*/
+    justify-content: space-between;
+    background-color: white;
+    padding: 28px 76px 28px 76px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #E4E3EB;
+    position: relative;
+
+}
+
+
+#blogHeader img{
+    width: 150px;
+    height: 24px;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translatex(-50%);
+    transform: translatex(-50%);
+}

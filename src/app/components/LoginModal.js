@@ -5,6 +5,7 @@ import LoginError from "@/app/components/LoginError";
 import {error} from "next/dist/build/output/log";
 import LoggedOutModal from "@/app/components/LoggedOutModal";
 import LoggedInModal from "@/app/components/LoggedInModal";
+
 function LoginModal(props) {
     const [email, setEmail] = useState("");
     const [emailValid, setEmailValid] = useState(false);
@@ -13,16 +14,14 @@ function LoginModal(props) {
     const [logged, setLogged] = useState(false)
 
 
-
     const onBlurHandler = () => {
         setIsTouched(true);
     };
 
-    const loginSuccess=()=>{
+    const loginSuccess = () => {
         props.toggleLoginHandler()
         props.toggleModal()
     }
-
 
 
     function handleEmailChange(event) {
@@ -44,7 +43,7 @@ function LoginModal(props) {
         const requestData = {
             email: email,
         };
-        if(emailValid){
+        if (emailValid) {
             fetch('https://api.blog.redberryinternship.ge/api/login', {
                 method: 'POST',
                 headers: {
@@ -59,31 +58,29 @@ function LoginModal(props) {
                         setLogged(true)
 
 
-
-                    }else{
+                    } else {
                         setErrorLable(<LoginError>ელ-ფოსტა არ მოიძებნა</LoginError>)
                     }
                 })
-        }else{
+        } else {
             setErrorLable(<LoginError>შეიყვანეთ ვალიდური ელ-ფოსტა</LoginError>)
         }
 
 
-
     }
 
-    return (<>{!logged?
+    return (<>{!logged ?
 
         <LoggedOutModal
-                        toggleModal={props.toggleModal}
-                        onSubmitHandler={onSubmitHandler}
-                        email={email}
-                        onBlurHandler={onBlurHandler}
-                        handleEmailChange={handleEmailChange}
-                        emailValid={emailValid}
-                        isTouched={isTouched}
-                        errorLable={errorLable}
-        />:
+            toggleModal={props.toggleModal}
+            onSubmitHandler={onSubmitHandler}
+            email={email}
+            onBlurHandler={onBlurHandler}
+            handleEmailChange={handleEmailChange}
+            emailValid={emailValid}
+            isTouched={isTouched}
+            errorLable={errorLable}
+        /> :
 
         <LoggedInModal toggleModal={loginSuccess}/>
     }

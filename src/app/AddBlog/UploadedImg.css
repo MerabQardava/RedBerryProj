@@ -1,0 +1,28 @@
+#uploadedBox{
+    width: 100%;
+    height: 56px;
+    border-radius: 12px;
+    background: #F2F2FA;
+    /*background: cyan;*/
+    padding: 16px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+
+#uploadedBox div:first-child{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+#deleteImg{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+

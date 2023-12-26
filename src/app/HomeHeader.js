@@ -2,6 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./HomeHeader.css"
 import LoginModal from "@/app/components/LoginModal";
+import Link from "next/link";
 
 function HomeHeader(props) {
     const [loginModal, setLoginModal] = useState(false)
@@ -30,7 +31,8 @@ function HomeHeader(props) {
             <div id="bar">
                 <img src="LOGO-02%203.svg" alt="Redberry logo"/>
 
-                {isLoggedIn ? <button>დაამატე ბლოგი</button> : <button onClick={loginToggleHandler}>შესვლა</button>}
+                {isLoggedIn ? <Link href="AddBlog"><button>დაამატე ბლოგი</button></Link>
+                    : <button onClick={loginToggleHandler}>შესვლა</button>}
             </div>
 
             <div id="title">

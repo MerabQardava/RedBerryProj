@@ -18,7 +18,6 @@ export default function Home() {
             <CategoriesBar/>
             {/*<Blogs/>*/}
 
-
         </main>
     )
 }
