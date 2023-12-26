@@ -1,12 +1,24 @@
-#authorInputBox{
+.authorInputBox{
     width: 288px;
-    height: 140px;
     flex-shrink: 0;
-    margin: 24px 24px 24px 0;
+    margin: 24px 24px 0 0;
 }
 
-#authorInputBox ul{
+.authorInputBox ul{
     /*list-style-type: none;*/
     padding-left: 18px;
     margin-top: 8px;
+}
+
+.authorInputBox p{
+    margin: 0;
+}
+
+ul{
+    color: #85858D;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
 }

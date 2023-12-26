@@ -4,7 +4,6 @@ import styles from "./Blogs.css"
 function Blogs(props) {
     useEffect(() => {
         const getCategories = async (token) => {
-            // console.log(token)
             const query = await fetch("https://api.blog.redberryinternship.ge/api/blogs",{
                 method:'GET',
                 headers:{
@@ -12,7 +11,6 @@ function Blogs(props) {
                 }
             })
             const response = await query.json()
-            // return response
             console.log(response)
         }
 

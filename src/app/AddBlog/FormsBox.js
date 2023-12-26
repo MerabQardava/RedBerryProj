@@ -4,6 +4,8 @@ import styles from "./FormsBox.css"
 import UploadImageBox from "@/app/AddBlog/UploadImageBox";
 import UploadedImg from "@/app/AddBlog/UploadedImg";
 import AuthorInput from "@/app/AddBlog/AuthorInput";
+import TitleInput from "@/app/AddBlog/TitleInput";
+import DescriptionInput from "@/app/AddBlog/DescriptionInput";
 
 function FormsBox(props) {
     const [uploadedImage, setUploadedImage] = useState(null)
@@ -12,7 +14,7 @@ function FormsBox(props) {
         setUploadedImage(image)
     }
 
-    console.log(uploadedImage)
+
 
     function onFormSubmitHandler(event) {
         event.preventDefault();
@@ -30,9 +32,16 @@ function FormsBox(props) {
                         <UploadedImg img={uploadedImage} getImage={getImage}/>
                 }
 
-                <AuthorInput/>
+                <div id="author_titleContainer">
+                    <AuthorInput/>
+                    <TitleInput/>
+                </div>
 
-                <button>submit</button>
+                <DescriptionInput/>
+
+
+
+                {/*<button>submit</button>*/}
 
             </form>
 
