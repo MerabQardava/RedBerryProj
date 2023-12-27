@@ -1,9 +1,12 @@
 #formsContainer{
     width: 600px;
     /*background-color: gray;*/
-    /*height: 768px;*/
+    height: 928px;
     margin-top:33px;
+    margin-bottom:110px ;
     padding: 0;
+    position: relative;
+
 }
 
 
@@ -36,6 +39,27 @@
     padding: 12px 16px;
     box-sizing: border-box;
     font-family: FiraGo,sans-serif;
+    margin-top: 8px;
+}
+
+.descriptionTextArea{
+    min-width:600px;
+    min-height: 124px;
+    resize: none;
+    border-radius: 12px;
+    border: 1px solid #E4E3EB;
+    background: #FCFCFD;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    font-family: FiraGo,sans-serif;
+    margin-top: 8px;
+}
+
+.formInputText:focus{
+    border-radius: 12px;
+    border: 1.5px solid #5D37F3;
+    background: #F7F7FF;
+    outline: none;
 }
 
 .formInputText::placeholder{
@@ -69,4 +93,79 @@
     padding: 0;
 }
 
+.successInput{
+    border: 1px solid #14D81C;
 
+}
+
+.unsuccessfulInput{
+    border: 1px solid #EA1919;
+
+}
+
+#date_category{
+    width: 600px;
+    height: 72px;
+    display: flex;
+    /*background-color: #EA1919;*/
+
+}
+
+.dateInputBox{
+    width: 288px;
+    height: 72px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    margin-right: 24px;
+}
+
+.dateInputBox p{
+    margin: 0;
+}
+
+.CategoryInputBox{
+    width: 288px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid #E4E3EB;
+    background: #FCFCFD;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    font-family: FiraGo,sans-serif;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.CategoryInputBox p {
+    color: #85858D;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+
+}
+
+#openCategoryMenu{
+    display: inline-block;
+    
+}
+
+
+#formsContainer button{
+    display: flex;
+    width: 288px;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: #5D37F3;
+    color: white;
+    font-family: FiraGo,sans-serif;
+    border: transparent;
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+
+
+}

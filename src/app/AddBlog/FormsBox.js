@@ -6,6 +6,10 @@ import UploadedImg from "@/app/AddBlog/UploadedImg";
 import AuthorInput from "@/app/AddBlog/AuthorInput";
 import TitleInput from "@/app/AddBlog/TitleInput";
 import DescriptionInput from "@/app/AddBlog/DescriptionInput";
+import DateInput from "@/app/AddBlog/DateInput";
+import CategoriesBar from "@/app/components/CategoriesBar";
+import CategoryInput from "@/app/AddBlog/CategoryInput";
+import BlogEmailInput from "@/app/AddBlog/BlogEmailInput";
 
 function FormsBox(props) {
     const [uploadedImage, setUploadedImage] = useState(null)
@@ -39,9 +43,17 @@ function FormsBox(props) {
 
                 <DescriptionInput/>
 
+                <div id="date_category">
+                    <DateInput/>
+                    <CategoryInput/>
 
 
-                {/*<button>submit</button>*/}
+                </div>
+                    <BlogEmailInput/>
+
+
+
+                <button>გამოქვეყნება</button>
 
             </form>
 

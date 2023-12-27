@@ -63,7 +63,7 @@ function LoginModal(props) {
                     }
                 })
         } else {
-            setErrorLable(<LoginError>შეიყვანეთ ვალიდური ელ-ფოსტა</LoginError>)
+            setErrorLable(<LoginError>მეილი უნდა მთავრდებოდეს @redbery.ge-ით</LoginError>)
         }
 
 

@@ -1,14 +1,8 @@
-#descriptionTextArea{
-    min-width:600px;
-    min-height: 124px;
-    resize: none;
+.descriptionTextArea:focus{
     border-radius: 12px;
-    border: 1px solid #E4E3EB;
-    background: #FCFCFD;
-    padding: 12px 16px;
-    box-sizing: border-box;
-    font-family: FiraGo,sans-serif;
-
+    border: 1.5px solid #5D37F3;
+    background: #F7F7FF;
+    outline: none;
 }
 
 #textArea{
