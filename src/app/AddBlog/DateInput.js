@@ -4,11 +4,23 @@ function DateInput(props) {
     const [date, setDate] = useState("")
     const [isTouched, setIsTouched] = useState(false);
 
+    useEffect(() => {
+        if(localStorage.getItem('publish_dat')){
+            setDate(localStorage.getItem('publish_dat'))
+        }
 
+    }, []);
+
+    useEffect(() => {
+        props.updateForm({
+            publish_date: date,
+        })
+    }, [date]);
     function dateOnChange(event) {
         let value = event.target.value
         setDate(value)
         props.updateForm({publish_date:value})
+        localStorage.setItem('publish_dat', value);
     }
 
     // console.log(date)

@@ -7,6 +7,13 @@ function BlogEmailInput(props) {
     const [isTouched, setIsTouched] = useState(false);
     const [isValid, setIsValid] = useState(true);
 
+    useEffect(() => {
+        if(localStorage.getItem('email')){
+            setEmail(localStorage.getItem('email'))
+        }
+
+    }, []);
+
     const onBlurHandler = () => {
         setIsTouched(true);
         if (email.trim() === "") {
@@ -21,17 +28,20 @@ function BlogEmailInput(props) {
                 isValid: isValid
             }
         })
+
+        if (email === "" || email.endsWith("@redberry.ge")) {
+            setIsValid(true);
+        } else {
+            setIsValid(false);
+        }
     }, [email,isValid]);
 
     function emailOnChange(event) {
         const newEmail = event.target.value;
         setEmail(newEmail);
+        localStorage.setItem('email', newEmail);
 
-        if (newEmail === "" || newEmail.endsWith("@redberry.ge")) {
-            setIsValid(true);
-        } else {
-            setIsValid(false);
-        }
+
     }
 
     return (<div className="authorInputBox">

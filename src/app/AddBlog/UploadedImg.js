@@ -3,8 +3,10 @@ import styles from "./UploadedImg.css"
 function UploadedImg(props) {
 
     function onDelete(){
-        props.getImage(null)
-
+        // props.getImage(null)
+        localStorage.setItem('image', "");
+        props.updateForm({image:""})
+        console.log("delete")
     }
 
 

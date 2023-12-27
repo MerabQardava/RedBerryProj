@@ -12,7 +12,6 @@ import CategoryInput from "@/app/AddBlog/CategoryInput";
 import BlogEmailInput from "@/app/AddBlog/BlogEmailInput";
 
 function FormsBox(props) {
-    const [uploadedImage, setUploadedImage] = useState(null)
     const [isFormValid, setIsFormValid] = useState()
     const [formInfo, setFormInfo] = useState({
         title: {
@@ -26,9 +25,8 @@ function FormsBox(props) {
         },
     })
 
-    useEffect(() => {
-        formInfo.image=localStorage.getItem('image')
-    }, [formInfo]);
+
+
 
 
 
@@ -44,13 +42,17 @@ function FormsBox(props) {
         setFormInfo((prevFormInfo) => ({
             ...prevFormInfo, ...newState,
         }));
-    };
+    }
 
-    useEffect(() => {
-        if (uploadedImage) {
+
+
+    function getImage(image) {
+
+        if (image) {
             const reader = new FileReader();
 
             reader.onload = () => {
+
 
                 const result = btoa(reader.result);
 
@@ -61,7 +63,7 @@ function FormsBox(props) {
             };
 
 
-            reader.readAsBinaryString(uploadedImage);
+            reader.readAsBinaryString(image);
         } else {
             setFormInfo((prevFormInfo) => ({
                 ...prevFormInfo, image: (""),
@@ -69,10 +71,6 @@ function FormsBox(props) {
             localStorage.setItem('image', "");
         }
 
-    }, [uploadedImage]);
-
-    function getImage(image) {
-        setUploadedImage(image)
     }
 
 
@@ -85,6 +83,7 @@ function FormsBox(props) {
     // base 64 to img
 
 
+
     return (<div id="formsContainer">
         <p>ბლოგის დამატება</p>
         {/*<img*/}
@@ -94,8 +93,9 @@ function FormsBox(props) {
         {/*/>*/}
         <form onSubmit={onFormSubmitHandler}>
             <p>ატვირთეთ ფოტო</p>
+            {}
             {formInfo.image === "" ? <UploadImageBox getImage={getImage}/> :
-                <UploadedImg img={localStorage.getItem('imageName')} getImage={getImage}/>}
+                <UploadedImg img={localStorage.getItem('imageName')} updateForm={updateFormInfo}/>}
 
             <div id="author_titleContainer">
                 <AuthorInput updateForm={updateFormInfo}/>

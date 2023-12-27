@@ -17,17 +17,21 @@ function AuthorInput(props) {
     const onBlurHandler = () => {
         setIsTouched(true);
     };
-
-    function authorOnChange(event) {
-        let value = event.target.value
-        localStorage.setItem('author', value);
-        setAuthor(value)
+    useEffect(() => {
         props.updateForm({
             author: {
-                value: value,
+                value: author,
                 isValid: letters && words && isGeorgian
             }
         })
+    }, [author,letters,words,isGeorgian]);
+
+    function authorOnChange(event) {
+        console.log("test")
+        let value = event.target.value
+        localStorage.setItem('author', value);
+        setAuthor(value)
+
 
     }
 

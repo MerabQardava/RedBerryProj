@@ -20,7 +20,10 @@ function UploadImageBox(props) {
     }
 
 
+
+
     const handleFileChange = (event) => {
+
         const file = event.target.files[0];
         props.getImage(file);
         localStorage.setItem('imageName', file.name);

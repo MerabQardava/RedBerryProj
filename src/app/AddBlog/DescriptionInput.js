@@ -6,19 +6,31 @@ function DescriptionInput(props) {
     const [letters, setLetters] = useState(false);
     const [isTouched, setIsTouched] = useState(false);
 
+    useEffect(() => {
+        if(localStorage.getItem('description')){
+            setDescription(localStorage.getItem('description'))
+        }
+
+    }, []);
+
     const onBlurHandler = () => {
         setIsTouched(true);
     };
 
-    function titleOnChange(event) {
-        let value = event.target.value
-        setDescription(value)
+    useEffect(() => {
         props.updateForm({
             description: {
-                value: value,
+                value: description,
                 isValid: letters
             }
         })
+    }, [description,letters]);
+
+    function titleOnChange(event) {
+        let value = event.target.value
+        setDescription(value)
+        localStorage.setItem('description', value);
+
     }
 
 
