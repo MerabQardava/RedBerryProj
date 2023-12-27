@@ -12,7 +12,7 @@ function UploadedImg(props) {
         <div id="uploadedBox">
             <div>
                 <img src="gallery.svg" alt=""/>
-                <span>{props.img.name}</span>
+                <span>{props.img}</span>
             </div>
 
             <img src="add.svg" onClick={onDelete} alt="" id="deleteImg"/>

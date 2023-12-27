@@ -5,7 +5,7 @@ import LoginError from "@/app/components/LoginError";
 function BlogEmailInput(props) {
     const [email, setEmail] = useState("");
     const [isTouched, setIsTouched] = useState(false);
-    const [isValid, setIsValid] = useState(false);
+    const [isValid, setIsValid] = useState(true);
 
     const onBlurHandler = () => {
         setIsTouched(true);
@@ -13,6 +13,15 @@ function BlogEmailInput(props) {
             setIsValid(true);
         }
     };
+
+    useEffect(() => {
+        props.updateForm({
+            email: {
+                value: email,
+                isValid: isValid
+            }
+        })
+    }, [email,isValid]);
 
     function emailOnChange(event) {
         const newEmail = event.target.value;
@@ -33,10 +42,10 @@ function BlogEmailInput(props) {
             value={email}
             type="text"
             placeholder="შეიყვანეთ სათაური"
-            className={` ${isValid ? "successInput" : isTouched ? "unsuccessfulInput" : ""} formInputText`}
+            className={` ${isValid&&isTouched ? "successInput" : isTouched ? "unsuccessfulInput" : ""} formInputText`}
         />
         {isTouched && !isValid && (<LoginError>
-            მეილი უნდა მთავრდებოდეს @redbery.ge-ით
+            მეილი უნდა მთავრდებოდეს @redberry.ge-ით
         </LoginError>)}
     </div>);
 }

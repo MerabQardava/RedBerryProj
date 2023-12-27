@@ -12,6 +12,16 @@ function CategoryInput(props) {
         setToggleMenu((prev) => !prev)
     }
 
+    function addTag(element) {
+        if (!chosen.includes(element)) {
+            const newArray = [...chosen, element];
+
+            setChosen(newArray);
+        }
+    }
+
+    // console.log((chosen))
+
 
     useEffect(() => {
         const getCategories = async () => {
@@ -26,7 +36,7 @@ function CategoryInput(props) {
 
 
     return (<div className="dateInputBox">
-            <p>გამოქვეყნების თარიღი *</p>
+            <p>კატეგორია *</p>
 
             <div className="CategoryInputBox">
                 <p>აირჩიეთ კატეგორია</p>
@@ -37,7 +47,7 @@ function CategoryInput(props) {
             </div>
             {toggleMenu && <div id="test">
                 {categories ? categories.map((tags) => {
-                    return (<Tag key={tags.id} color={tags.text_color}
+                    return (<Tag getter={addTag} id={tags.id} key={tags.id} color={tags.text_color}
                                  background_color={tags.background_color}
                                  title={tags.title}></Tag>)
                 }) : <></>}

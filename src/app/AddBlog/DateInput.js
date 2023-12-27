@@ -6,10 +6,12 @@ function DateInput(props) {
 
 
     function dateOnChange(event) {
-        setDate(event.target.value)
+        let value = event.target.value
+        setDate(value)
+        props.updateForm({publish_date:value})
     }
 
-    console.log(date)
+    // console.log(date)
 
     const onBlurHandler = () => {
         setIsTouched(true);

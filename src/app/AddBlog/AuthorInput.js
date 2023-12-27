@@ -8,12 +8,26 @@ function AuthorInput(props) {
     const [isGeorgian, setIsGeorgian] = useState(false);
     const [isTouched, setIsTouched] = useState(false);
 
+
+    useEffect(() => {
+        if(localStorage.getItem('author')){
+           setAuthor(localStorage.getItem('author'))
+        }
+    }, []);
     const onBlurHandler = () => {
         setIsTouched(true);
     };
 
     function authorOnChange(event) {
-        setAuthor(event.target.value)
+        let value = event.target.value
+        localStorage.setItem('author', value);
+        setAuthor(value)
+        props.updateForm({
+            author: {
+                value: value,
+                isValid: letters && words && isGeorgian
+            }
+        })
 
     }
 

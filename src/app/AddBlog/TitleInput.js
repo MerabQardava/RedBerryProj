@@ -5,12 +5,26 @@ function TitleInput(props) {
     const [letters, setLetters] = useState(false);
     const [isTouched, setIsTouched] = useState(false);
 
+    useEffect(() => {
+        if(localStorage.getItem('title')){
+            setTitle(localStorage.getItem('title'))
+        }
+    }, []);
+
     const onBlurHandler = () => {
         setIsTouched(true);
     };
 
     function titleOnChange(event) {
-        setTitle(event.target.value)
+        let value = event.target.value
+        localStorage.setItem('title', value);
+        setTitle(value)
+        props.updateForm({
+            title: {
+                value: value,
+                isValid: letters
+            }
+        })
     }
 
 

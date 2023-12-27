@@ -11,7 +11,14 @@ function DescriptionInput(props) {
     };
 
     function titleOnChange(event) {
-        setDescription(event.target.value)
+        let value = event.target.value
+        setDescription(value)
+        props.updateForm({
+            description: {
+                value: value,
+                isValid: letters
+            }
+        })
     }
 
 
