@@ -3,7 +3,7 @@
     /*background-color: gray;*/
     height: 928px;
     margin-top:33px;
-    /*margin-bottom:110px ;*/
+    margin-bottom:60px ;
     padding: 0;
     position: relative;
 
@@ -176,7 +176,7 @@
     border: transparent;
     position: absolute;
     right: 0;
-    bottom: 90px;
+    bottom: -90px;
     cursor: pointer;
 
 
@@ -194,6 +194,11 @@
     border: transparent;
     position: absolute;
     right: 0;
-    bottom: 90px;
+    bottom: -90px;
     background: #E4E3EB;
+}
+
+#blogForm{
+    /*background-color: red;*/
+    position: relative;
 }

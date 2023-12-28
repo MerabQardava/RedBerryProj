@@ -3,9 +3,14 @@ import styles from "./Tag.css"
 
 function Tag(props) {
     function test() {
-        props.getter(props.id)
+        if(props.getter){
+            props.getter(props.id)
+
+
+        }
 
     }
+
 
     function removeTag(){
         props.deleteTag(props.id)
@@ -15,7 +20,7 @@ function Tag(props) {
     return (<>
 
 
-        {!props.del ? <div onClick={test} className="tag_container"
+        {!props.del ? <div onClick={test} className={`${props.highlighted?"highlighted":""} tag_container`}
                           style={{color: props.color, backgroundColor: props.background_color,cursor:"pointer"}}>{props.title}
 
         </div> : <div className="tag_container"

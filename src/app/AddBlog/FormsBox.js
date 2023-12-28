@@ -44,7 +44,7 @@ function FormsBox(props) {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Authorization': 'Bearer 9b998e79af2f6fcd05a4ecdef769d2108dbbcd6dff1b9096f0ec1dc9d16196ae',
+                    'Authorization': 'Bearer 7b87c938bf2ebecd3f1578e6efc7b35be3f1064e20bcc1f28ef7b4c64ebae6f1',
                     'accept': 'application/json',
                 },
             });
@@ -140,7 +140,7 @@ function FormsBox(props) {
         {/*    alt="Uploaded"*/}
 
         {/*/>*/}
-        <form onSubmit={onFormSubmitHandler}>
+        <form id="blogForm" onSubmit={onFormSubmitHandler}>
             <p>ატვირთეთ ფოტო</p>
             {}
             {formInfo.image === "" ? <UploadImageBox getImage={getImage}/> :
