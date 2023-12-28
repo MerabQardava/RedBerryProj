@@ -27,7 +27,7 @@ function AuthorInput(props) {
     }, [author,letters,words,isGeorgian]);
 
     function authorOnChange(event) {
-        console.log("test")
+        // console.log("test")
         let value = event.target.value
         localStorage.setItem('author', value);
         setAuthor(value)

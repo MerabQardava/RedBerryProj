@@ -12,6 +12,7 @@ import CategoryInput from "@/app/AddBlog/CategoryInput";
 import BlogEmailInput from "@/app/AddBlog/BlogEmailInput";
 
 function FormsBox(props) {
+
     const [formInfo, setFormInfo] = useState({
         title: {
             value: "", isValid: false
@@ -33,7 +34,7 @@ function FormsBox(props) {
             const formData = new FormData();
             formData.append('title', formInfo.title.value);
             formData.append('description', formInfo.description.value);
-            formData.append('image', base64toFile(formInfo.image,"test","image/png")); //
+            formData.append('image', base64toFile(formInfo.image,"test","image/png"));
             formData.append('author', formInfo.author.value);
             formData.append('publish_date', formInfo.publish_date);
             formData.append('categories', JSON.stringify(formInfo.categories));
@@ -48,11 +49,18 @@ function FormsBox(props) {
                 },
             });
 
-            const responseData = await response.json();
+            if(response.status===204){
+                props.toggleModal()
+                // console.log("test")
+            }
 
-            console.log('Blog created successfully:', responseData);
+
+
+
+
+            console.log('Blog created successfully:', response.status);
         } catch (error) {
-            console.error('Error creating blog:', error);
+            console.error('Error mech creating blog:', error);
         }
     };
 

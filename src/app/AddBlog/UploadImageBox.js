@@ -29,7 +29,7 @@ function UploadImageBox(props) {
         props.getImage(file);
         localStorage.setItem('imageName', file.name);
 
-        props.test(file)
+        // props.test(file)
 
     };
 

@@ -3,7 +3,7 @@
     /*background-color: gray;*/
     height: 928px;
     margin-top:33px;
-    margin-bottom:110px ;
+    /*margin-bottom:110px ;*/
     padding: 0;
     position: relative;
 
@@ -137,11 +137,18 @@
     gap: 8px;
     /*justify-content: space-between;*/
     overflow-x: hidden;
+    position: relative;
 }
 
 #openCategoryMenu{
     position: absolute;
     right: 14px;
+    top: 12px;
+    background-color: white;
+
+}
+#categoryPlaceholder{
+    margin-top: 6px;
 }
 
 .CategoryInputBox p {
@@ -153,10 +160,7 @@
 
 }
 
-#openCategoryMenu{
-    display: inline-block;
-    
-}
+
 
 
 #formsContainer button{
@@ -172,7 +176,7 @@
     border: transparent;
     position: absolute;
     right: 0;
-    bottom: -40px;
+    bottom: 90px;
     cursor: pointer;
 
 
@@ -180,6 +184,16 @@
 
 #formsContainer button:disabled{
     cursor: default;
-
+    width: 288px;
+    padding: 10px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    color: white;
+    font-family: FiraGo,sans-serif;
+    border: transparent;
+    position: absolute;
+    right: 0;
+    bottom: 90px;
     background: #E4E3EB;
 }

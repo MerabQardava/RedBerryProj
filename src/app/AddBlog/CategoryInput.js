@@ -14,7 +14,7 @@ function CategoryInput(props) {
     }
 
     function deleteTag(id){
-        console.log(chosen)
+        // console.log(chosen)
 
         const updatedArray = chosen.filter((item) => item !== id+1);
         setChosen(updatedArray);
@@ -81,7 +81,7 @@ function CategoryInput(props) {
                     }
 
 
-                }) : <p>აირჩიეთ კატეგორია</p>}
+                }) : <p id="categoryPlaceholder">აირჩიეთ კატეგორია</p>}
                 <img style={{cursor: "pointer"}} onClick={toggleTagMenu} src="arrow-down.svg" id="openCategoryMenu"
                      alt=""/>
 
