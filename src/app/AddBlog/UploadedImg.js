@@ -6,7 +6,7 @@ function UploadedImg(props) {
         // props.getImage(null)
         localStorage.setItem('image', "");
         props.updateForm({image:""})
-        console.log("delete")
+        // console.log("delete")
     }
 
 

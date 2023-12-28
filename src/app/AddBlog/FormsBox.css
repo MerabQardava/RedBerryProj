@@ -129,12 +129,19 @@
     border-radius: 12px;
     border: 1px solid #E4E3EB;
     background: #FCFCFD;
-    padding: 12px 16px;
+    padding: 6px 16px;
     box-sizing: border-box;
     font-family: FiraGo,sans-serif;
     margin-top: 8px;
     display: flex;
-    justify-content: space-between;
+    gap: 8px;
+    /*justify-content: space-between;*/
+    overflow-x: hidden;
+}
+
+#openCategoryMenu{
+    position: absolute;
+    right: 14px;
 }
 
 .CategoryInputBox p {

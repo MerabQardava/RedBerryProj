@@ -13,6 +13,8 @@ function DescriptionInput(props) {
 
     }, []);
 
+
+
     const onBlurHandler = () => {
         setIsTouched(true);
     };

@@ -17,7 +17,7 @@ function Blogs(props) {
         getCategories("9b998e79af2f6fcd05a4ecdef769d2108dbbcd6dff1b9096f0ec1dc9d16196ae")
 
     }, []);
-    console.log("test")
+    // console.log("test")
     return (
         <div>
             test

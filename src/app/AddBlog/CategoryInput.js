@@ -10,17 +10,41 @@ function CategoryInput(props) {
 
     function toggleTagMenu() {
         setToggleMenu((prev) => !prev)
+
     }
+
+    function deleteTag(id){
+        console.log(chosen)
+
+        const updatedArray = chosen.filter((item) => item !== id+1);
+        setChosen(updatedArray);
+
+
+    }
+
+    useEffect(() => {
+        if (localStorage.getItem('categories')) {
+            setChosen(JSON.parse(localStorage.getItem('categories')))
+        }
+
+    }, []);
+
+    useEffect(() => {
+        props.updateForm({categories: chosen})
+    }, [chosen]);
+
 
     function addTag(element) {
         if (!chosen.includes(element)) {
             const newArray = [...chosen, element];
-
             setChosen(newArray);
+            localStorage.setItem('categories', JSON.stringify(newArray));
+
+
         }
     }
 
-    // console.log((chosen))
+    // console.log(chosen)
 
 
     useEffect(() => {
@@ -34,12 +58,30 @@ function CategoryInput(props) {
 
     }, []);
 
+    // let mech=6;
+    // //
+    // if(toggleMenu){
+    // console.log(categories)
+    //
+    // }
+
 
     return (<div className="dateInputBox">
             <p>კატეგორია *</p>
 
             <div className="CategoryInputBox">
-                <p>აირჩიეთ კატეგორია</p>
+                {chosen.length > 0 ? chosen.map((tags) => {
+                    if (categories) {
+
+                        return <Tag deleteTag={deleteTag} id={tags - 1} key={tags - 1} color={categories[tags - 1].text_color}
+                                    background_color={categories[tags - 1].background_color}
+                                    title={categories[tags - 1].title}
+                                    del={true}
+                        />
+                    }
+
+
+                }) : <p>აირჩიეთ კატეგორია</p>}
                 <img style={{cursor: "pointer"}} onClick={toggleTagMenu} src="arrow-down.svg" id="openCategoryMenu"
                      alt=""/>
 

@@ -12,7 +12,6 @@ import CategoryInput from "@/app/AddBlog/CategoryInput";
 import BlogEmailInput from "@/app/AddBlog/BlogEmailInput";
 
 function FormsBox(props) {
-    const [mech, setMech] = useState()
     const [formInfo, setFormInfo] = useState({
         title: {
             value: "", isValid: false
@@ -20,12 +19,14 @@ function FormsBox(props) {
             value: "", isValid: false
         }, image: "", author: {
             value: "", isValid: false
-        }, publish_date: "", categories: [1], email: {
+        }, publish_date: "", categories: [], email: {
             value: "", isValid: false
         },
     })
-
-    // console.log(formInfo.image)
+    // useEffect(() => {
+    //
+    //     console.log(formInfo)
+    // }, [formInfo]);
 
     const createBlog = async () => {
         try {
@@ -66,22 +67,18 @@ function FormsBox(props) {
         }));
     }
     function base64toFile(base64String, fileName, fileType) {
-        // Step 1: Decode Base64 string
-        const binaryString = atob(base64String);
+        const binaryString = atob(base64String)
 
-        // Step 2: Create Uint8Array from binary data
-        const length = binaryString.length;
-        const uint8Array = new Uint8Array(length);
+        const length = binaryString.length
+        const uint8Array = new Uint8Array(length)
 
         for (let i = 0; i < length; i++) {
-            uint8Array[i] = binaryString.charCodeAt(i);
+            uint8Array[i] = binaryString.charCodeAt(i)
         }
 
-        // Step 3: Create Blob object
-        const blob = new Blob([uint8Array], { type: fileType });
+        const blob = new Blob([uint8Array], { type: fileType })
 
-        // Step 4: Create File object
-        return new File([blob], fileName, { type: fileType });
+        return new File([blob], fileName, { type: fileType })
     }
 
 
@@ -98,17 +95,17 @@ function FormsBox(props) {
                 setFormInfo((prevFormInfo) => ({
                     ...prevFormInfo, image: (result),
                 }));
-                localStorage.setItem('image', result);
+                localStorage.setItem('image', result)
             };
 
 
-            reader.readAsBinaryString(image);
+            reader.readAsBinaryString(image)
 
         } else {
             setFormInfo((prevFormInfo) => ({
                 ...prevFormInfo, image: (""),
             }));
-            localStorage.setItem('image', "");
+            localStorage.setItem('image', "")
         }
 
     }
@@ -138,7 +135,7 @@ function FormsBox(props) {
         <form onSubmit={onFormSubmitHandler}>
             <p>ატვირთეთ ფოტო</p>
             {}
-            {formInfo.image === "" ? <UploadImageBox test={test} getImage={getImage}/> :
+            {formInfo.image === "" ? <UploadImageBox getImage={getImage}/> :
                 <UploadedImg img={localStorage.getItem('imageName')} updateForm={updateFormInfo}/>}
 
             <div id="author_titleContainer">
@@ -150,7 +147,7 @@ function FormsBox(props) {
 
             <div id="date_category">
                 <DateInput updateForm={updateFormInfo}/>
-                <CategoryInput/>
+                <CategoryInput updateForm={updateFormInfo}/>
 
 
             </div>
