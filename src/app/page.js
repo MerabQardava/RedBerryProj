@@ -16,7 +16,7 @@ export default function Home() {
         <main id="homeMain">
             <HomeHeader/>
             <CategoriesBar/>
-            {/*<Blogs/>*/}
+            <Blogs/>
 
         </main>
     )

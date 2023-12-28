@@ -12,7 +12,7 @@ import CategoryInput from "@/app/AddBlog/CategoryInput";
 import BlogEmailInput from "@/app/AddBlog/BlogEmailInput";
 
 function FormsBox(props) {
-    const [isFormValid, setIsFormValid] = useState()
+    const [mech, setMech] = useState()
     const [formInfo, setFormInfo] = useState({
         title: {
             value: "", isValid: false
@@ -25,17 +25,39 @@ function FormsBox(props) {
         },
     })
 
+    // console.log(formInfo.image)
+
+    const createBlog = async () => {
+        try {
+            const formData = new FormData();
+            formData.append('title', formInfo.title.value);
+            formData.append('description', formInfo.description.value);
+            formData.append('image', base64toFile(formInfo.image,"test","image/png")); //
+            formData.append('author', formInfo.author.value);
+            formData.append('publish_date', formInfo.publish_date);
+            formData.append('categories', JSON.stringify(formInfo.categories));
+            formData.append('email', formInfo.email.value);
+
+            const response = await fetch('https://api.blog.redberryinternship.ge/api/blogs', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Authorization': 'Bearer 9b998e79af2f6fcd05a4ecdef769d2108dbbcd6dff1b9096f0ec1dc9d16196ae',
+                    'accept': 'application/json',
+                },
+            });
+
+            const responseData = await response.json();
+
+            console.log('Blog created successfully:', responseData);
+        } catch (error) {
+            console.error('Error creating blog:', error);
+        }
+    };
 
 
 
-
-
-
-
-
-
-
-    let buttonEnabled = formInfo.title.isValid && formInfo.description.isValid && (formInfo.image !== "") && formInfo.author.isValid && (formInfo.publish_date !== "") && (formInfo.categories.length > 0)
+    let buttonEnabled = formInfo.title.isValid && formInfo.description.isValid && (formInfo.image !== "") && formInfo.author.isValid && (formInfo.publish_date !== "") && (formInfo.categories.length > 0)&&formInfo.email.isValid
 
 
     function updateFormInfo(newState) {
@@ -43,7 +65,24 @@ function FormsBox(props) {
             ...prevFormInfo, ...newState,
         }));
     }
+    function base64toFile(base64String, fileName, fileType) {
+        // Step 1: Decode Base64 string
+        const binaryString = atob(base64String);
 
+        // Step 2: Create Uint8Array from binary data
+        const length = binaryString.length;
+        const uint8Array = new Uint8Array(length);
+
+        for (let i = 0; i < length; i++) {
+            uint8Array[i] = binaryString.charCodeAt(i);
+        }
+
+        // Step 3: Create Blob object
+        const blob = new Blob([uint8Array], { type: fileType });
+
+        // Step 4: Create File object
+        return new File([blob], fileName, { type: fileType });
+    }
 
 
     function getImage(image) {
@@ -64,6 +103,7 @@ function FormsBox(props) {
 
 
             reader.readAsBinaryString(image);
+
         } else {
             setFormInfo((prevFormInfo) => ({
                 ...prevFormInfo, image: (""),
@@ -71,6 +111,10 @@ function FormsBox(props) {
             localStorage.setItem('image', "");
         }
 
+    }
+
+    function test(image){
+        setMech(image)
     }
 
 
@@ -94,7 +138,7 @@ function FormsBox(props) {
         <form onSubmit={onFormSubmitHandler}>
             <p>ატვირთეთ ფოტო</p>
             {}
-            {formInfo.image === "" ? <UploadImageBox getImage={getImage}/> :
+            {formInfo.image === "" ? <UploadImageBox test={test} getImage={getImage}/> :
                 <UploadedImg img={localStorage.getItem('imageName')} updateForm={updateFormInfo}/>}
 
             <div id="author_titleContainer">
@@ -113,7 +157,7 @@ function FormsBox(props) {
             <BlogEmailInput updateForm={updateFormInfo}/>
 
 
-            <button disabled={!buttonEnabled}>გამოქვეყნება</button>
+            <button onClick={createBlog} disabled={!buttonEnabled}>გამოქვეყნება</button>
 
         </form>
 

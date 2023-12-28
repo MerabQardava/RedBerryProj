@@ -16,6 +16,7 @@ function UploadImageBox(props) {
         if (files.length > 0) {
 
             props.getImage(files[0]);
+
         }
     }
 
@@ -28,7 +29,7 @@ function UploadImageBox(props) {
         props.getImage(file);
         localStorage.setItem('imageName', file.name);
 
-
+        props.test(file)
 
     };
 
