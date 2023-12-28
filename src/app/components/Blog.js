@@ -6,7 +6,7 @@ function Blog(props) {
     const originalDate = props.publish_date
     const [year, month, day] = originalDate.split("-");
     const newDate = `${day}.${month}.${year}`;
-    // console.log(props.description)
+
     return (
         <div id="card">
             <img id="photo" src={props.image} alt=""/>

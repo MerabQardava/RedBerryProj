@@ -31,13 +31,19 @@ function Blogs(props) {
 
     }, []);
 
+    const currentDate=(new Date).setHours(4,0,0,0);
+
     // console.log(allBlogs)
     return (<div id="blogsDiv">
 
         {allBlogs&&props.filter.length===0 ? allBlogs.map((blog) => {
-            return <Blog key={blog.id} author={blog.author} description={blog.description}
-                         tag={blog.categories} publish_date={blog.publish_date}
-                         title={blog.title} image={blog.image}/>
+            console.log(`${currentDate>=new Date(blog.publish_date)} ${new Date(blog.publish_date)}`)
+            if(currentDate>=new Date(blog.publish_date)){
+                return <Blog key={blog.id} author={blog.author} description={blog.description}
+                             tag={blog.categories} publish_date={blog.publish_date}
+                             title={blog.title} image={blog.image}/>
+
+            }
 
         }) :allBlogs && allBlogs.map((blog)=>{
             // console.log(props.filter)
