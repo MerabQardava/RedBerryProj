@@ -6,10 +6,21 @@ import Tag from "@/app/components/Tag";
 import CategoriesBar from "@/app/components/CategoriesBar";
 import HomeHeader from "@/app/HomeHeader";
 import Blogs from "@/app/Blogs";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export default function Home() {
     const [filter, setFilter] = useState([])
+
+
+
+
+
+
+    useEffect(() => {
+
+            setFilter(JSON.parse(localStorage.getItem("filter")))
+
+    }, []);
 
 
     function addFilter (num) {
@@ -17,9 +28,15 @@ export default function Home() {
         if (isNumberInArray) {
             const updatedFilter = filter.filter((number) => number !== num)
             setFilter(updatedFilter);
+            // localStorage.setItem("filter",JSON.stringify())
+            console.log(updatedFilter)
+
         } else {
             setFilter((prevFilter) => [...prevFilter, num])
+
         }
+
+
     }
 
     // console.log(filter)

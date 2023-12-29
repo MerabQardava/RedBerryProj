@@ -31,7 +31,7 @@ function Page({params}) {
             // console.log(response.categories)
         }
 
-        getCategories("7b87c938bf2ebecd3f1578e6efc7b35be3f1064e20bcc1f28ef7b4c64ebae6f1")
+        getCategories("bd21a7cb74229b18566fbaf79a6b79c175f6215124cd41dc7ce0445d1c114700")
 
 
     }, []);

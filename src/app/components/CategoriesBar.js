@@ -9,6 +9,8 @@ function CategoriesBar(props) {
 
 
 
+
+
     // console.log(filter)
 
     useEffect(() => {
