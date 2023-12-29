@@ -143,7 +143,7 @@ function FormsBox(props) {
         <form id="blogForm" onSubmit={onFormSubmitHandler}>
             <p>ატვირთეთ ფოტო</p>
             {}
-            {formInfo.image ? <UploadImageBox getImage={getImage}/> :
+            {formInfo.image === "" ? <UploadImageBox getImage={getImage}/> :
                 <UploadedImg img={localStorage.getItem('imageName')} updateForm={updateFormInfo}/>}
 
             <div id="author_titleContainer">
