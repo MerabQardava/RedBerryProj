@@ -8,23 +8,6 @@ function CategoryInput(props) {
     const [toggleMenu, setToggleMenu] = useState(false)
     const [chosen, setChosen] = useState([])
 
-        console.log("mech")
-    useEffect(() => {
-        localStorage.setItem("chosen",chosen)
-
-    }, [chosen]);
-
-    // useEffect(() => {
-    //     if(chosen.length===0){
-    //         setChosen(localStorage.g)
-    //     }
-    //
-    // }, []);
-
-
-
-
-
     function toggleTagMenu() {
         setToggleMenu((prev) => !prev)
 
@@ -35,7 +18,7 @@ function CategoryInput(props) {
 
         const updatedArray = chosen.filter((item) => item !== id+1);
         setChosen(updatedArray);
-
+        localStorage.setItem('categories', JSON.stringify(updatedArray))
 
     }
 
@@ -90,7 +73,8 @@ function CategoryInput(props) {
                 {chosen.length > 0 ? chosen.map((tags) => {
                     if (categories) {
 
-                        return <Tag deleteTag={deleteTag} id={tags - 1} key={tags - 1} color={categories[tags - 1].text_color}
+                        return <Tag deleteTag={deleteTag} id={tags - 1} key={tags - 1}
+                                    color={categories[tags - 1].text_color}
                                     background_color={categories[tags - 1].background_color}
                                     title={categories[tags - 1].title}
                                     del={true}

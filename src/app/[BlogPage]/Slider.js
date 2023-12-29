@@ -24,21 +24,21 @@ function Slider(props) {
 
     }, []);
 
-    useEffect(() => {
-        if(allBlogs){
-
-            let sus=[]
-            allBlogs.map(tag=>{
-                if(tag.categories.some(item1 => props.categories.some(item2 => item1.id === item2.id))){
-                    // setSimilar((prevArray) => [...prevArray, tag])
-                    sus.push(tag)
-                }
-            })
-            // setSimilar(sus)
-            console.log(sus)
-        }
-
-    }, [allBlogs]);
+    // useEffect(() => {
+    //     if(allBlogs){
+    //
+    //         let sus=[]
+    //         allBlogs.map(tag=>{
+    //             if(tag.categories.some(item1 => props.categories.some(item2 => item1.id === item2.id))){
+    //                 // setSimilar((prevArray) => [...prevArray, tag])
+    //                 sus.push(tag)
+    //             }
+    //         })
+    //         // setSimilar(sus)
+    //         console.log(sus)
+    //     }
+    //
+    // }, [allBlogs]);
 
 
 

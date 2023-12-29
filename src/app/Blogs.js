@@ -38,7 +38,7 @@ function Blogs(props) {
             })
             const response = await query.json()
             setAllBlogs(response.data)
-            console.log(response.data)
+            // console.log(response.data)
         }
 
         getCategories("7b87c938bf2ebecd3f1578e6efc7b35be3f1064e20bcc1f28ef7b4c64ebae6f1")
