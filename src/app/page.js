@@ -16,6 +16,8 @@ export default function Home() {
 
 
 
+
+
     useEffect(() => {
 
             setFilter(JSON.parse(localStorage.getItem("filter")))
@@ -28,11 +30,13 @@ export default function Home() {
         if (isNumberInArray) {
             const updatedFilter = filter.filter((number) => number !== num)
             setFilter(updatedFilter);
-            // localStorage.setItem("filter",JSON.stringify())
-            console.log(updatedFilter)
+            localStorage.setItem("filter",JSON.stringify(updatedFilter))
+            // console.log("test")
 
         } else {
+
             setFilter((prevFilter) => [...prevFilter, num])
+            localStorage.setItem("filter",JSON.stringify([...filter,num]))
 
         }
 
