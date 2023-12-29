@@ -27,7 +27,7 @@ function Page({params}) {
             const originalDate = response.publish_date
             const [year, month, day] = originalDate.split("-")
             setNewDate(`${day}.${month}.${year}`)
-            console.log(currentBlog.categories)
+            // console.log(response.categories)
         }
 
         getCategories("7b87c938bf2ebecd3f1578e6efc7b35be3f1064e20bcc1f28ef7b4c64ebae6f1")
@@ -44,25 +44,24 @@ function Page({params}) {
                     currentBlog&& <>
                         <img src={currentBlog.image} id="articleImage"/>
                         <p id="articleName">{currentBlog.author}</p>
-                        <p id="articleDate">{`${newDate} • ${currentBlog.email?currentBlog.email:""}`}</p>
+                        <p id="articleDate">{`${newDate} • ${currentBlog.email ? currentBlog.email : ""}`}</p>
                         <h3 id="Blogtitle">{currentBlog.title}</h3>
 
-                        {/*<div id="blogTagContainer">*/}
+                        <div id="articleBlogTagContainer">
+                            {/*{console.log(currentBlog.categories[0])}*/}
 
-                        {/*    {currentBlog.categories ? currentBlog.categories((tags) => {*/}
-                        {/*        return <Tag highlighted={false} id={tags.id} key={tags.id}*/}
-                        {/*                    color={tags.text_color}*/}
-                        {/*                    background_color={tags.background_color}*/}
-                        {/*                    title={tags.title}></Tag>*/}
-                        {/*    }) : ""}*/}
-                        {/*</div>*/}
-
-
+                            {currentBlog.categories.map((tags) => {
+                                return <Tag highlighted={false} id={tags.id} key={tags.id}
+                                            color={tags.text_color}
+                                            background_color={tags.background_color}
+                                            title={tags.title}></Tag>
+                            })}
+                        </div>
+                        <p id="articleDescription">{currentBlog.description}</p>
                     </>
                 }
-
-
             </div>
+
           </div>
     </>)
 }

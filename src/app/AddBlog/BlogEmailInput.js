@@ -51,7 +51,7 @@ function BlogEmailInput(props) {
             onChange={emailOnChange}
             value={email}
             type="text"
-            placeholder="შეიყვანეთ სათაური"
+            placeholder="Example@redberry.ge"
             className={` ${isValid&&isTouched ? "successInput" : isTouched ? "unsuccessfulInput" : ""} formInputText`}
         />
         {isTouched && !isValid && (<LoginError>
