@@ -138,14 +138,28 @@
     /*justify-content: space-between;*/
     overflow-x: hidden;
     position: relative;
+
 }
 
 #openCategoryMenu{
-    position: absolute;
-    right: 14px;
-    top: 12px;
-    background-color: white;
+    /*position: absolute;*/
+    /*right: 14px;*/
+    /*top: 12px;*/
+    /*background-color: white;*/
+    width: 20px;
 
+
+}
+
+#arrowContainer{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 #categoryPlaceholder{
     margin-top: 6px;
@@ -159,6 +173,8 @@
     line-height: 20px; /* 142.857% */
 
 }
+
+
 
 
 

@@ -82,8 +82,10 @@ function CategoryInput(props) {
 
 
                 }) : <p id="categoryPlaceholder">აირჩიეთ კატეგორია</p>}
-                <img style={{cursor: "pointer"}} onClick={toggleTagMenu} src="arrow-down.svg" id="openCategoryMenu"
-                     alt=""/>
+                <div id="arrowContainer">
+                    <img style={{cursor: "pointer"}} onClick={toggleTagMenu} src="arrow-down.svg" id="openCategoryMenu"
+                         alt=""/>
+                </div>
 
 
             </div>

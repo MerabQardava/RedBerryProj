@@ -5,8 +5,13 @@ import Link from "next/link";
 
 function Blog(props) {
     const originalDate = props.publish_date
-    const [year, month, day] = originalDate.split("-");
-    const newDate = `${day}.${month}.${year}`;
+    const [year, month, day] = originalDate.split("-")
+    const newDate = `${day}.${month}.${year}`
+
+    // function saveBlog(){
+    //     props.save(props.id)
+    //
+    // }
 
 
     return (
@@ -30,7 +35,7 @@ function Blog(props) {
 
                 <p id="description">{props.description}</p>
                 <Link href={`/${props.id}`} id="link_container">
-                    <p id="link">სრულად ნახვა</p>
+                    <p  id="link">სრულად ნახვა</p>
 
                 </Link>
 

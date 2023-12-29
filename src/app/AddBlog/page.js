@@ -23,7 +23,6 @@ function Page(props) {
             localStorage.setItem('publish_dat', "")
             localStorage.setItem('email', "")
             localStorage.setItem('categories', "[]")
-
         }
 
 

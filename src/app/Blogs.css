@@ -1,6 +1,18 @@
 #blogsDiv{
     padding: 64px 76px;
     display: flex;
+    /*width: max-content;*/
     flex-wrap: wrap;
+    width: 1288px;
     gap:32px ;
+    /*background-color: red;*/
+    /*justify-content: center;*/
+}
+
+#blogsDivWrapper{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    /*background-color: black;*/
+
 }

@@ -2,6 +2,8 @@
     /*background-color: bisque;*/
     width: 408px;
     height: 620px;
+    margin-top: 56px;
+    margin-bottom: 0;
 
 
 }
@@ -32,9 +34,9 @@
     margin-top: 0;
     display: flex;
     gap: 16px;
-    /*flex-wrap: wrap;*/
+    flex-wrap: wrap;
     margin-bottom: 16px;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 #photo{
     box-sizing: border-box;

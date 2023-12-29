@@ -30,6 +30,7 @@ function FormsBox(props) {
     // }, [formInfo]);
 
     const createBlog = async () => {
+        
         try {
             const formData = new FormData();
             formData.append('title', formInfo.title.value);
@@ -39,6 +40,7 @@ function FormsBox(props) {
             formData.append('publish_date', formInfo.publish_date);
             formData.append('categories', JSON.stringify(formInfo.categories));
             formData.append('email', formInfo.email.value);
+            console.log(formInfo.email.value)
 
             const response = await fetch('https://api.blog.redberryinternship.ge/api/blogs', {
                 method: 'POST',
@@ -143,7 +145,7 @@ function FormsBox(props) {
         <form id="blogForm" onSubmit={onFormSubmitHandler}>
             <p>ატვირთეთ ფოტო</p>
             {}
-            {formInfo.image === "" ? <UploadImageBox getImage={getImage}/> :
+            {localStorage&&!localStorage.image  ? <UploadImageBox getImage={getImage}/> :
                 <UploadedImg img={localStorage.getItem('imageName')} updateForm={updateFormInfo}/>}
 
             <div id="author_titleContainer">
