@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from "./Blog.css"
 import Tag from "@/app/components/Tag";
+import Link from "next/link";
 
 function Blog(props) {
     const originalDate = props.publish_date
     const [year, month, day] = originalDate.split("-");
     const newDate = `${day}.${month}.${year}`;
+
 
     return (
         <div id="card">
@@ -27,10 +29,10 @@ function Blog(props) {
 
 
                 <p id="description">{props.description}</p>
-                <div id="link_container">
+                <Link href={`/${props.id}`} id="link_container">
                     <p id="link">სრულად ნახვა</p>
-                    {/*<img src="Arrow.svg" alt=""*/}
-                </div>
+
+                </Link>
 
             </div>
 

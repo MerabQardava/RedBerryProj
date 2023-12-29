@@ -39,7 +39,7 @@ function Blogs(props) {
         {allBlogs&&props.filter.length===0 ? allBlogs.map((blog) => {
             console.log(`${currentDate>=new Date(blog.publish_date)} ${new Date(blog.publish_date)}`)
             if(currentDate>=new Date(blog.publish_date)){
-                return <Blog key={blog.id} author={blog.author} description={blog.description}
+                return <Blog key={blog.id} id={blog.id} author={blog.author} description={blog.description}
                              tag={blog.categories} publish_date={blog.publish_date}
                              title={blog.title} image={blog.image}/>
 
