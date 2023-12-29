@@ -8,6 +8,23 @@ function CategoryInput(props) {
     const [toggleMenu, setToggleMenu] = useState(false)
     const [chosen, setChosen] = useState([])
 
+        console.log("mech")
+    useEffect(() => {
+        localStorage.setItem("chosen",chosen)
+
+    }, [chosen]);
+
+    // useEffect(() => {
+    //     if(chosen.length===0){
+    //         setChosen(localStorage.g)
+    //     }
+    //
+    // }, []);
+
+
+
+
+
     function toggleTagMenu() {
         setToggleMenu((prev) => !prev)
 

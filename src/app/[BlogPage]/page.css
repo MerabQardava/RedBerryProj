@@ -5,7 +5,14 @@
     margin-top: 40px;
     margin-bottom: 98px;
 }
+#backButton{
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    top: 120px;
+    left: 76px;
 
+}
 #blogPageContainer{
     display: flex;
     justify-content: center;
@@ -51,7 +58,7 @@
     line-height: 28px; /* 175% */
     margin-bottom: 16px;
     white-space: pre-line;
-    height: 56px;
+    /*height: 56px;*/
     text-align: justify;
     word-wrap: break-word;
 

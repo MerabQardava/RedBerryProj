@@ -4,8 +4,9 @@ import Blog from "@/app/components/Blog";
 
 function Slider(props) {
     const [allBlogs, setAllBlogs] = useState()
+    const [similar, setSimilar] = useState([])
 
-    console.log(props.categories)
+    // console.log(props.categories)
 
     useEffect(() => {
         const getCategories = async (token) => {
@@ -16,12 +17,29 @@ function Slider(props) {
             })
             const response = await query.json()
             setAllBlogs(response.data)
-            console.log(response.data)
+            // console.log(response.data)
         }
 
         getCategories("7b87c938bf2ebecd3f1578e6efc7b35be3f1064e20bcc1f28ef7b4c64ebae6f1")
 
     }, []);
+
+    useEffect(() => {
+        if(allBlogs){
+
+            let sus=[]
+            allBlogs.map(tag=>{
+                if(tag.categories.some(item1 => props.categories.some(item2 => item1.id === item2.id))){
+                    // setSimilar((prevArray) => [...prevArray, tag])
+                    sus.push(tag)
+                }
+            })
+            // setSimilar(sus)
+            console.log(sus)
+        }
+
+    }, [allBlogs]);
+
 
 
     return (

@@ -4,6 +4,7 @@ import styles from "./page.css"
 import ArticleHeader from "@/app/[BlogPage]/ArticleHeader";
 import Tag from "@/app/components/Tag";
 import Slider from "@/app/[BlogPage]/Slider";
+import BackButton from "@/app/AddBlog/BackButton";
 
 function Page({params}) {
     const [allBlogs, setAllBlogs] = useState()
@@ -39,8 +40,10 @@ function Page({params}) {
 
 
     return (<>
+
         <ArticleHeader/>
-        <div style={{display: "flex", flexDirection:"column",  width: "100%", alignItems: "center"}}>
+        <div style={{display: "flex", position:"relative", flexDirection:"column",  width: "100%", alignItems: "center"}}>
+            <BackButton/>
             <div id="articleContainer">
                 {
                     currentBlog && <>
