@@ -3,12 +3,12 @@ import React, {useEffect, useState} from 'react';
 import styles from "./page.css"
 import ArticleHeader from "@/app/[BlogPage]/ArticleHeader";
 import Tag from "@/app/components/Tag";
+import Slider from "@/app/[BlogPage]/Slider";
 
 function Page({params}) {
     const [allBlogs, setAllBlogs] = useState()
     const [currentBlog, setCurrentBlog] = useState()
     const [newDate, setNewDate] = useState()
-
 
 
     // const newDate = `${day}.${month}.${year}`
@@ -36,12 +36,14 @@ function Page({params}) {
     }, []);
 
 
+
+
     return (<>
         <ArticleHeader/>
-          <div style={{display:"flex",width:"100%",justifyContent:"center"}}>
+        <div style={{display: "flex", flexDirection:"column",  width: "100%", alignItems: "center"}}>
             <div id="articleContainer">
                 {
-                    currentBlog&& <>
+                    currentBlog && <>
                         <img src={currentBlog.image} id="articleImage"/>
                         <p id="articleName">{currentBlog.author}</p>
                         <p id="articleDate">{`${newDate} • ${currentBlog.email ? currentBlog.email : ""}`}</p>
@@ -61,8 +63,10 @@ function Page({params}) {
                     </>
                 }
             </div>
+            {currentBlog&&<Slider categories={currentBlog.categories}/>}
 
-          </div>
+
+        </div>
     </>)
 }
 

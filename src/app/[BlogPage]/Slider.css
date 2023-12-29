@@ -1,9 +1,20 @@
+#sliderContainer{
+    width:1288px ;
+    /*height: 620px;*/
+    /*background-color: cyan;*/
+    display: flex;
+    overflow: scroll;
+    gap: 32px;
+
+}
+
 #card{
     /*background-color: bisque;*/
     width: 408px;
     height: 620px;
     margin-top: 56px;
     margin-bottom: 0;
+    flex-shrink: 0;
 
 
 }
@@ -89,16 +100,13 @@
     margin-top: 0;
     font-size: 14px;
     color:#5D37F3 ;
-    position: relative;
-
+    /*position: absolute;*/
 }
 #link:after{
     content: url("/Arrow.svg");
-    position: absolute;
+    /*position: absolute;*/
     top: 50%;
     transform: translateY(-50%);
-    /*margin-top: 5px;*/
-
 }
 #link_container{
     display: flex;

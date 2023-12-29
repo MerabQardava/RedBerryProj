@@ -1,8 +1,9 @@
 #articleContainer{
     width: 720px;
     /*height: 1000px;*/
-    background-color: cyan;
+    /*background-color: cyan;*/
     margin-top: 40px;
+    margin-bottom: 98px;
 }
 
 #blogPageContainer{
