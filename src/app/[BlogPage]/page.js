@@ -27,7 +27,7 @@ function Page({params}) {
             const originalDate = response.publish_date
             const [year, month, day] = originalDate.split("-")
             setNewDate(`${day}.${month}.${year}`)
-            console.log(currentBlog)
+            console.log(currentBlog.categories)
         }
 
         getCategories("7b87c938bf2ebecd3f1578e6efc7b35be3f1064e20bcc1f28ef7b4c64ebae6f1")
